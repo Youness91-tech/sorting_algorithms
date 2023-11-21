@@ -7,9 +7,9 @@
  **/
 void int_swap(int *a, int *b)
 {
-        int tmp = *a;
-        *a = *b;
-        *b = tmp;
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 /**
@@ -22,24 +22,24 @@ void int_swap(int *a, int *b)
  */
 int lomuto_partition(int *arr, size_t size, int elem_one, int elem_two)
 {
-        int pivot = arr[elem_two];
-        int x = elem_one;
-        int y;
+	int pivot = arr[elem_two];
+	int x = elem_one;
+	int y;
 
-        for (y = elem_one; y < elem_two; y++)
-        {
-                if (arr[y] <= pivot)
-                {
-                        int_swap(&arr[x], &arr[y]);
-                        if (x != y)
-                                print_array(arr, size);
-                        x++;
-                }
-        }
-        int_swap(&arr[x], &arr[elem_two]);
-        if (x != y)
-                print_array(arr, size);
-        return (x);
+	for (y = elem_one; y < elem_two; y++)
+	{
+		if (arr[y] <= pivot)
+		{
+			int_swap(&arr[x], &arr[y]);
+			if (x != y)
+				print_array(arr, size);
+			x++;
+		}
+	}
+	int_swap(&arr[x], &arr[elem_two]);
+	if (x != y)
+		print_array(arr, size);
+	return (x);
 }
 
 /**
@@ -52,14 +52,14 @@ int lomuto_partition(int *arr, size_t size, int elem_one, int elem_two)
  */
 void lomuto_sort(int *arr, int elem_one, int elem_two, size_t size)
 {
-        int pivot;
+	int pivot;
 
-        if (elem_one < elem_two)
-        {
-                pivot = lomuto_partition(arr, elem_one, elem_two, size);
-                lomuto_sort(arr, elem_one, pivot - 1, size);
-                lomuto_sort(arr, pivot + 1, elem_two, size);
-        }
+	if (elem_one < elem_two)
+	{
+		pivot = lomuto_partition(arr, elem_one, elem_two, size);
+		lomuto_sort(arr, elem_one, pivot - 1, size);
+		lomuto_sort(arr, pivot + 1, elem_two, size);
+	}
 }
 
 /**
@@ -70,7 +70,7 @@ void lomuto_sort(int *arr, int elem_one, int elem_two, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-        if (size < 2)
-                return;
-        lomuto_sort(array, 0, size - 1, size);
+	if (size < 2)
+		return;
+	lomuto_sort(array, 0, size - 1, size);
 }

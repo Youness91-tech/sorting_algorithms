@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap_nodes - Swaps two nodes
+ * swap_nds - Swaps two nodes
  * @first_node: the first node
  * @second_node: the last  node
  * @head: the head of list
@@ -9,7 +9,7 @@
  * Return: No return
  */
 
-void swap_nodes(listint_t *first_node, listint_t *second_node, listint_t **head)
+void swap_nds(listint_t *first_node, listint_t *second_node, listint_t **head)
 {
 	listint_t *temp;
 
@@ -52,7 +52,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (temp->n > temp->next->n)
 			{
-				swap_nodes(temp, temp->next, list);
+				swap_nds(temp, temp->next, list);
 				sorted = 1;
 			}
 			else
@@ -65,7 +65,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (temp->n < temp->prev->n)
 			{
-				swap_nodes(temp->prev, temp, list);
+				swap_nds(temp->prev, temp, list);
 				sorted = 1;
 			}
 			else

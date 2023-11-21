@@ -28,7 +28,8 @@ void swap_nds(listint_t *first_node, listint_t *second_node, listint_t **head)
 }
 
 /**
- * cocktail_sort_list -  sorts a doubly linked list of integers in ascending order
+ * cocktail_sort_list -  sorts a doubly linked list of
+ * integers in ascending order
  * @list: the pointer to the head of the doubly linked list
  */
 

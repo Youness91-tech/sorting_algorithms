@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
- * int_swap - swaps two integers
- * @a: The first integer
- * @b: The second integer
+ * ints_swap - Swap two integers in an array.
+ * @a: The first intgrs
+ * @b: The second intgrs
  **/
-void int_swap(int *a, int *b)
+void ints_swap(int *a, int *b)
 {
 	int tmp = *a;
 	*a = *b;
@@ -13,59 +13,59 @@ void int_swap(int *a, int *b)
 }
 
 /**
- * lomuto_partition - splits array around a pivot
- * @arr: the array
- * @elem_one: the first element
- * @elem_two: the last element
- * @size: the size of array
- * Return: integer
+ * partn - split array around a pivot
+ * @arr: The array
+ * @st_elem: The first element
+ * @last_elem: The last element
+ * @size: Array size
+ * Return: i integer
  */
-int lomuto_partition(int *arr, size_t size, int elem_one, int elem_two)
+int partn(int *arr, int st_elem, int last_elem, size_t size)
 {
-	int pivot = arr[elem_two];
-	int x = elem_one;
-	int y;
+	int pivot = arr[last_elem];
+	int i = st_elem;
+	int j;
 
-	for (y = elem_one; y < elem_two; y++)
+	for (j = st_elem; j < last_elem; j++)
 	{
-		if (arr[y] <= pivot)
+		if (arr[j] <= pivot)
 		{
-			int_swap(&arr[x], &arr[y]);
-			if (x != y)
+			ints_swap(&arr[i], &arr[j]);
+			if (i != j)
 				print_array(arr, size);
-			x++;
+			i++;
 		}
 	}
-	int_swap(&arr[x], &arr[elem_two]);
-	if (x != y)
+	ints_swap(&arr[i], &arr[last_elem]);
+	if (i != j)
 		print_array(arr, size);
-	return (x);
+	return (i);
 }
 
 /**
  * lomuto_sort - sorts a part of the list
- * @arr: array to sort
- * @elem_one: the first element
- * @elem_two: the last element
- * @size: the size of array
+* @arr: array to be sorted
+ * @st_elem: first element
+ * @last_elem: last element
+ * @size: Array size
  * Return: no return
  */
-void lomuto_sort(int *arr, int elem_one, int elem_two, size_t size)
+void lomuto_sort(int *arr, int st_elem, int last_elem, size_t size)
 {
 	int pivot;
 
-	if (elem_one < elem_two)
+	if (st_elem < last_elem)
 	{
-		pivot = lomuto_partition(arr, elem_one, elem_two, size);
-		lomuto_sort(arr, elem_one, pivot - 1, size);
-		lomuto_sort(arr, pivot + 1, elem_two, size);
+		pivot = partn(arr, st_elem, last_elem, size);
+		lomuto_sort(arr, st_elem, pivot - 1, size);
+		lomuto_sort(arr, pivot + 1, last_elem, size);
 	}
 }
 
 /**
  * quick_sort - quick sort method of an array
- * @array: array to sort
- * @size: the size of array
+ * @array: array to be sorted
+ * @size: array size
  * Return: no return
  */
 void quick_sort(int *array, size_t size)

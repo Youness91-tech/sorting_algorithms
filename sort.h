@@ -25,7 +25,7 @@ void print_list(const listint_t *list);
 void selection_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
-void swap_nodes(listint_t *first_node, listint_t *second_node, listint_t **head);
+void swap_nds(listint_t *first_node, listint_t *second_node, listint_t **head);
 int get_max_val(int *array, int size);
 void counting_sort(int *array, size_t size);
 void int_swap(int *a, int *b);
